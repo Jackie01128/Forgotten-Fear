@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Jason's Scene (2nd Floor)/Jason's Scene (2nd Floor).unity
+- path: Assets/fabio's scene/fabio's scene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

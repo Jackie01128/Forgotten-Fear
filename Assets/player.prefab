@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7978536482520673498}
   - component: {fileID: 8600700039266813930}
   - component: {fileID: 2384356882260873847}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3968402392119842728}
   - component: {fileID: 7265059065118427034}
   - component: {fileID: 8316838420682875368}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6743498205111168844}
   - component: {fileID: 2564851556351221887}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Eyelids
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 7143015278613758882}
   - component: {fileID: 3864831048395649069}
   - component: {fileID: 8645504215505106441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 3019034831193831093}
   - component: {fileID: 976305042850803757}
   - component: {fileID: 20284094418599332}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,8 +460,9 @@ GameObject:
   - component: {fileID: 4678650130748597048}
   - component: {fileID: 7840619057563576898}
   - component: {fileID: 9133878436661146056}
+  - component: {fileID: 4464749959397399884}
   - component: {fileID: 7014966639204786862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -561,6 +562,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4464749959397399884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558004974287936779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deae216d4bc1dde48888604e833ff98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCameraTransform: {fileID: 4449351429174733598}
+  PickUpLayerMask:
+    serializedVersion: 2
+    m_Bits: 183
 --- !u!114 &7014966639204786862
 MonoBehaviour:
   m_ObjectHideFlags: 0

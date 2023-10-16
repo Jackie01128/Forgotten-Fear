@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4476989570226570887}
   - component: {fileID: 6152222893815376724}
   - component: {fileID: 5329529754375893526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4926,7 +4926,7 @@ GameObject:
   - component: {fileID: 2485792036666907654}
   - component: {fileID: 366953510584040605}
   - component: {fileID: 8040988381577400910}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseSpark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9694,7 +9694,8 @@ GameObject:
   - component: {fileID: 2788555298905311759}
   - component: {fileID: 6950857109036389727}
   - component: {fileID: 4524182910242896910}
-  m_Layer: 0
+  - component: {fileID: -2645892924968247026}
+  m_Layer: 7
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9728,7 +9729,7 @@ Rigidbody:
   m_GameObject: {fileID: 2788555298905311758}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -9768,6 +9769,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &-2645892924968247026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788555298905311758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a331ad14c250646a6e8731f3d18ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4134209887214826504
 GameObject:
   m_ObjectHideFlags: 0
@@ -9780,7 +9793,7 @@ GameObject:
   - component: {fileID: 591604153731154546}
   - component: {fileID: 4927900954963753169}
   - component: {fileID: 4071683943590192578}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flare_Cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9885,7 +9898,7 @@ GameObject:
   - component: {fileID: 1025070127420154068}
   - component: {fileID: 158524943600747778}
   - component: {fileID: 4344861757750094262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flare_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9989,7 +10002,7 @@ GameObject:
   - component: {fileID: 1162047048902494576}
   - component: {fileID: 4853023455644797930}
   - component: {fileID: 8287190138671518109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14757,7 +14770,7 @@ GameObject:
   - component: {fileID: 1108677378722549412}
   - component: {fileID: 5043153517260240110}
   - component: {fileID: 6467315482624426010}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flare_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
