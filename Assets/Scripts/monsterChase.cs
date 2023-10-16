@@ -1,17 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class monsterChase : MonoBehaviour
+public class MonsterChase : MonoBehaviour
 {
-    public Rigidbody monsRigid;
-    public Transform monsTrans, playTrans;
-    public int monSpeed;
+    public NavMeshAgent monsterAgent;
+    public Transform playerTransform;
 
-    void FixedUpdate(){
-        monsRigid.velocity = transform.forward * monSpeed * Time.deltaTime;
+    void Start()
+    {
+        // Initialize the NavMeshAgent component.
+        monsterAgent = GetComponent<NavMeshAgent>();
+
+        // Set the destination to the player's initial position.
+        SetDestinationToPlayer();
     }
-    void Update(){
-        monsTrans.LookAt(playTrans);
+
+    void Update()
+    {
+        // Update the destination continuously to follow the player.
+        SetDestinationToPlayer();
+    }
+
+    void SetDestinationToPlayer()
+    {
+        if (playerTransform != null)
+        {
+            // Set the destination to the player's current position.
+            monsterAgent.SetDestination(playerTransform.position);
+        }
     }
 }

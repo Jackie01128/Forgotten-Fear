@@ -90,8 +90,8 @@ public class SC_FPSController : MonoBehaviour
             targetSpeed = minSpeed / speedMultiplier;
         }
 
-        float curSpeedX = canMove ? targetSpeed * speedMultiplier * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? targetSpeed * speedMultiplier * Input.GetAxis("Horizontal") : 0;
+        float curSpeedX = canMove ? (isCrouching ? crouchSpeed : targetSpeed) * speedMultiplier * Input.GetAxis("Vertical") : 0;
+        float curSpeedY = canMove ? (isCrouching ? crouchSpeed : targetSpeed) * speedMultiplier * Input.GetAxis("Horizontal") : 0;
 
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
