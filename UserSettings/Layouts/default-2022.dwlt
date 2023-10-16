@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 4525
+  controlID: 2302
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4457
+  controlID: 2303
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -393,9 +393,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 34f7ffff
-      m_LastClickedID: -2252
-      m_ExpandedIDs: 2cfbffff486d0000
+      m_SelectedIDs: e27c0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2cfbffff386d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -757,7 +757,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 48, y: 10.666626}
+      snapOffset: {x: 48, y: 10}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: UnityEditor.SceneViewCameraOverlay
@@ -802,9 +802,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 19.813486, y: 13.757463, z: -39.721344}
+    m_Target: {x: 14.762845, y: 6.557044, z: -31.294262}
     speed: 2
-    m_Value: {x: 19.813486, y: 13.757463, z: -39.721344}
+    m_Value: {x: 14.762845, y: 6.557044, z: -31.294262}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -850,13 +850,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.013921025, y: 0.98569316, z: -0.13380578, w: 0.10446965}
+    m_Target: {x: 0.0035629019, y: 0.99588877, z: -0.049263738, w: 0.07992137}
     speed: 2
-    m_Value: {x: 0.013921025, y: 0.9856931, z: -0.13380578, w: 0.10446964}
+    m_Value: {x: 0.003561795, y: 0.99557936, z: -0.04924843, w: 0.07989654}
   m_Size:
-    m_Target: 0.032052897
+    m_Target: 0.8696372
     speed: 2
-    m_Value: 0.032052897
+    m_Value: 0.8696372
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -927,7 +927,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Flashlight
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -935,16 +935,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Flashlight
+  - Assets/Scripts
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\Fabio K\Desktop\UCF\Forgotten-Fear4
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: dc6f0000
-    m_LastClickedID: 28636
-    m_ExpandedIDs: 000000001a6e00001c6e00001e6e0000206e0000226e0000246e0000266e000000ca9a3bffffff7f
+    m_SelectedIDs: 18700000
+    m_LastClickedID: 28696
+    m_ExpandedIDs: 000000004a6e00004c6e00004e6e0000506e0000526e0000546e0000566e00002a7a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -972,7 +972,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001a6e00001c6e00001e6e0000206e0000226e0000246e0000266e000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000004a6e00004c6e00004e6e0000506e0000526e0000546e0000566e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000b4c00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -2252
+  m_LastSelectedObjectID: 29768
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52

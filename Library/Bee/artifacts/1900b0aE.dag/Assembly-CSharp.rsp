@@ -370,6 +370,7 @@
 "Assets/door.cs"
 "Assets/Scripts/monsAppear.cs"
 "Assets/Scripts/monsterChase.cs"
+"Assets/Scripts/PlayerPickUpDrop.cs"
 "Assets/Scripts/SC_FPSController.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
