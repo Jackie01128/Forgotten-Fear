@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/fabio's scene/fabio's scene.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
