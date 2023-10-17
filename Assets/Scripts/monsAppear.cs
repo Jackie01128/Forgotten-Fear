@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class monsterAppear : MonoBehaviour
+public class monsAppear : MonoBehaviour
 {
     public GameObject monster;
     public Collider collision1;
