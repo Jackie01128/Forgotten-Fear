@@ -157,7 +157,7 @@ public class SC_FPSController : MonoBehaviour
         }
 
         // Debug logs
-        Debug.Log("Current Speed: " + curSpeedX);
+        //Debug.Log("Current Speed: " + curSpeedX);
 
         // Apply character movement
         characterController.Move(moveDirection * Time.deltaTime);
