@@ -51,7 +51,6 @@ public class Doors : MonoBehaviour
         if (inReach && Input.GetButtonDown("Interact"))
         {
             DoorOpens();
-            Debug.Log("DOOOOORRRR IIISSSS OPENING");
         }
 
         else
