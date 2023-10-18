@@ -7,6 +7,7 @@ TagManager:
   - Camera
   - monster
   - LightTrigger
+  - Reach
   layers:
   - Default
   - TransparentFX
