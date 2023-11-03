@@ -1551,25 +1551,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8755366353956053453, guid: 8ab6b43181e1dd24494b5d3a49b72106,
+        type: 3}
+      propertyPath: tempParent
+      value: 
+      objectReference: {fileID: 1282714438}
     - target: {fileID: 2788555298905311758, guid: 8ab6b43181e1dd24494b5d3a49b72106,
         type: 3}
       propertyPath: m_Name
       value: Flare (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788555298905311759, guid: 8ab6b43181e1dd24494b5d3a49b72106,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4066
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788555298905311759, guid: 8ab6b43181e1dd24494b5d3a49b72106,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.4066
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788555298905311759, guid: 8ab6b43181e1dd24494b5d3a49b72106,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.4066
       objectReference: {fileID: 0}
     - target: {fileID: 2788555298905311759, guid: 8ab6b43181e1dd24494b5d3a49b72106,
         type: 3}
@@ -1621,12 +1611,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6950857109036389727, guid: 8ab6b43181e1dd24494b5d3a49b72106,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10799,11 +10785,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4464749959397399884, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
-        type: 3}
-      propertyPath: objectGrabPointTransform
-      value: 
-      objectReference: {fileID: 1282714439}
     - target: {fileID: 5140882960331766644, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10859,7 +10840,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4449351429174733598, guid: f36e8a2b09ff47a49bf6e534ccc80a55,

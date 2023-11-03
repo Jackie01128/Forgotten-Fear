@@ -9694,9 +9694,9 @@ GameObject:
   - component: {fileID: 2788555298905311759}
   - component: {fileID: 6950857109036389727}
   - component: {fileID: 4524182910242896910}
-  - component: {fileID: -2645892924968247026}
   - component: {fileID: 1866048610914073881}
   - component: {fileID: 5204597261240371007}
+  - component: {fileID: -8755366353956053453}
   m_Layer: 7
   m_Name: Flare
   m_TagString: Untagged
@@ -9714,7 +9714,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4066, y: 1.4066, z: 1.4066}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7805104407065435340}
@@ -9731,7 +9731,7 @@ Rigidbody:
   m_GameObject: {fileID: 2788555298905311758}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 5
+  m_Drag: 0
   m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -9745,10 +9745,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!64 &4524182910242896910
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9771,18 +9771,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &-2645892924968247026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2788555298905311758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a331ad14c250646a6e8731f3d18ea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!108 &1866048610914073881
 Light:
   m_ObjectHideFlags: 0
@@ -9868,6 +9856,23 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &-8755366353956053453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788555298905311758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e50a57b973b1842a70fe835216c5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canHold: 1
+  item: {fileID: 2788555298905311758}
+  tempParent: {fileID: 7094977340588366727, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+    type: 3}
+  isHolding: 0
 --- !u!1 &4134209887214826504
 GameObject:
   m_ObjectHideFlags: 0

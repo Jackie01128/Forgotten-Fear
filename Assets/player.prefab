@@ -177,6 +177,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3260375924221332386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8231657388808715810}
+  m_Layer: 0
+  m_Name: ObjectGrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8231657388808715810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3260375924221332386}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.21700001, y: 0.5220003, z: 1.4799995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5140882960331766644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3530858768817106954
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +491,6 @@ GameObject:
   - component: {fileID: 4678650130748597048}
   - component: {fileID: 7840619057563576898}
   - component: {fileID: 9133878436661146056}
-  - component: {fileID: 4464749959397399884}
   - component: {fileID: 7014966639204786862}
   m_Layer: 6
   m_Name: player
@@ -482,6 +512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8231657388808715810}
   - {fileID: 4449351429174733598}
   - {fileID: 660692141960011154}
   m_Father: {fileID: 0}
@@ -562,22 +593,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4464749959397399884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6558004974287936779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deae216d4bc1dde48888604e833ff98b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCameraTransform: {fileID: 4449351429174733598}
-  PickUpLayerMask:
-    serializedVersion: 2
-    m_Bits: 183
 --- !u!114 &7014966639204786862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +609,12 @@ MonoBehaviour:
   runningSpeed: 11.5
   jumpSpeed: 8
   gravity: 20
+  crouchSpeed: 4
+  crouchHeight: 1
   playerCamera: {fileID: 7143015278613758882}
   lookSpeed: 2
   lookXLimit: 75
+  maxStamina: 10
+  staminaRegenerationRate: 1
+  staminaSlider: {fileID: 0}
   canMove: 1
