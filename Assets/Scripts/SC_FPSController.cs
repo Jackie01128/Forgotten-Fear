@@ -147,6 +147,7 @@ public class SC_FPSController : MonoBehaviour
             }
         }
 
+        
         // Player and Camera rotation
         if (canMove)
         {
