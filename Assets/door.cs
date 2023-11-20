@@ -27,6 +27,7 @@ public class Doors : MonoBehaviour
         {
             inReach = true;
             openText.SetActive(true);
+            
         }
     }
 
@@ -34,10 +35,9 @@ public class Doors : MonoBehaviour
     {
         if (other.gameObject.tag == "Reach")
         {
-
+           
             inReach = false;
             openText.SetActive(false);
-
         }
     }
 
@@ -47,17 +47,15 @@ public class Doors : MonoBehaviour
 
     void Update()
     {
-
+ 
         if (inReach && Input.GetButtonDown("Interact"))
         {
             DoorOpens();
-            Debug.Log("Door has opened");
         }
 
         else
         {
             DoorCloses();
-            Debug.Log("Door has opened");
         }
 
 
@@ -75,7 +73,7 @@ public class Doors : MonoBehaviour
 
     void DoorCloses()
     {
-        //Debug.Log("It Closes");
+       //Debug.Log("It Closes");
         door.SetBool("Open", false);
         door.SetBool("Closed", true);
     }
