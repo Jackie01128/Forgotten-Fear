@@ -9,6 +9,7 @@ TagManager:
   - LightTrigger
   - Reach
   - CinemachineTarget
+  - waypoints
   layers:
   - Default
   - TransparentFX
