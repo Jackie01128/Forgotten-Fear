@@ -2,39 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-public class PatrolBehavior : StateMachineBehaviour
+public class ChaseBehavior : StateMachineBehaviour
 {
-    float timer;
-    List<Transform> waypoints = new List<Transform>();
     NavMeshAgent agent;
-
     Transform player;
-    float ChaseRange = 10;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer = 0;
-        Transform waypointsObject = GameObject.FindGameObjectWithTag("waypoints").transform;
-        foreach (Transform t in waypointsObject)
-            waypoints.Add(t);
         agent = animator.GetComponent<NavMeshAgent>();
-        agent.SetDestination(waypoints[0].position);
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (agent.remainingDistance <= agent.stoppingDistance)
-            agent.SetDestination(waypoints[Random.Range(0, waypoints.Count)].position);
-        timer += Time.deltaTime;
-        if (timer > 10)
-           animator.SetBool("isPatrolling", false);
-
+        agent.SetDestination(player.position);
         float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance < ChaseRange)
-            animator.SetBool("isChasing", true);
+        if (distance < 7)
+            animator.SetBool("isAttacking", true);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
