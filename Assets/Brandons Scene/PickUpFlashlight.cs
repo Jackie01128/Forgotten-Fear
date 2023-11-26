@@ -15,8 +15,11 @@ public class PickUpFlashlight : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            if(Input.GetKey(KeyCode.E))
+            {
             this.gameObject.SetActive(false);
             FlashLightOnPlayer.SetActive(true);
+            }
         }
     }
 }

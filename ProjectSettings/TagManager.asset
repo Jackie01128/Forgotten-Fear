@@ -9,6 +9,7 @@ TagManager:
   - LightTrigger
   - Reach
   - CinemachineTarget
+  - waypoints
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - camera
   - first floor
   - second floor
-  - 
+  - Camera
   - 
   - 
   - 
