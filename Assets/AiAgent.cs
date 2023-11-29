@@ -15,6 +15,7 @@ public class AiAgent : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         stateMachine = new AiStateMachine(this);
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         stateMachine.RegisterState(new AiChasePlayerState());
         stateMachine.RegisterState(new AiIdleState());
         stateMachine.ChangeState(initalState);
