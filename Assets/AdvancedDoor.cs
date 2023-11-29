@@ -6,8 +6,8 @@ public class AdvancedDoors : MonoBehaviour
 {
 
     public Animator door;
-    public GameObject lockOB;
-    public GameObject keyOB;
+    //public GameObject lockOB;
+    //public GameObject keyOB;
     public GameObject openText;
     public GameObject closeText;
     public GameObject lockedText;
@@ -67,7 +67,8 @@ public class AdvancedDoors : MonoBehaviour
 
 
     void Update()
-    {
+    {   
+        /*
         if (lockOB.activeInHierarchy)
         {
             locked = true;
@@ -79,19 +80,19 @@ public class AdvancedDoors : MonoBehaviour
             unlocked = true;
             locked = false;
         }
-
-        if (inReach && keyOB.activeInHierarchy && Input.GetButtonDown("Interact"))
+        */
+        if (inReach && /*keyOB.activeInHierarchy && */ Input.GetButtonDown("Interact"))
         {
             unlockedSound.Play();
             locked = false;
-            keyOB.SetActive(false);
+            //keyOB.SetActive(false);
             StartCoroutine(unlockDoor());
         }
 
         if (inReach && doorisClosed && unlocked && Input.GetButtonDown("Interact"))
         {
-            door.SetBool("Open", true);
-            door.SetBool("Closed", false);
+            door.SetBool("open", true);
+            door.SetBool("close", false);
             openText.SetActive(false);
             openSound.Play();
             doorisOpen = true;
@@ -100,8 +101,8 @@ public class AdvancedDoors : MonoBehaviour
 
         else if (inReach && doorisOpen && unlocked && Input.GetButtonDown("Interact"))
         {
-            door.SetBool("Open", false);
-            door.SetBool("Closed", true);
+            door.SetBool("open", false);
+            door.SetBool("close", true);
             closeText.SetActive(false);
             closeSound.Play();
             doorisClosed = true;
@@ -123,7 +124,7 @@ public class AdvancedDoors : MonoBehaviour
         {
 
             unlocked = true;
-            lockOB.SetActive(false);
+            //lockOB.SetActive(false);
         }
     }
 
