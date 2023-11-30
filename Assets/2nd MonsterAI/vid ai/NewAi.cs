@@ -10,7 +10,7 @@ public class NewAi : MonoBehaviour
     public List<Transform> destinations;
     public Animator aiAnim;
     public float walkSpeed, chaseSpeed, minIdleTime, maxIdleTime, idleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, jumpscareTime;
-    public bool walking, chasing;
+    public bool walking, chasing, stun;
     public Transform player;
     Transform currentDest;
     Vector3 dest;
@@ -19,6 +19,24 @@ public class NewAi : MonoBehaviour
     public Vector3 rayCastOffset;
     public string deathScene;
 
+    bool flareActive = false;
+
+    public void StopAndBlock()
+    {
+        walking = false;
+        chasing = false;
+        // Additional logic for stopping the monster, e.g., setting it to a block state
+        // You might want to stop animations, disable AI, etc.
+        ai.isStopped = true; // Stop the NavMeshAgent
+    }
+
+    public void ResumeRoaming()
+    {
+        walking = true;
+        stun = false;
+        // Additional logic for resuming the monster's roaming behavior
+        ai.isStopped = false;
+    }
     void Start()
     {
         walking = true;
@@ -47,6 +65,7 @@ public class NewAi : MonoBehaviour
             ai.speed = chaseSpeed;
             aiAnim.ResetTrigger("walk");
             aiAnim.ResetTrigger("idle");
+            aiAnim.ResetTrigger("stun");
             aiAnim.SetTrigger("sprint");
             float distance = Vector3.Distance(player.position, ai.transform.position);
             if (distance <= catchDistance)
@@ -67,6 +86,7 @@ public class NewAi : MonoBehaviour
             ai.speed = walkSpeed;
             aiAnim.ResetTrigger("sprint");
             aiAnim.ResetTrigger("idle");
+            aiAnim.ResetTrigger("stun");
             aiAnim.SetTrigger("walk");
             if (ai.remainingDistance <= ai.stoppingDistance)
             {
@@ -79,6 +99,13 @@ public class NewAi : MonoBehaviour
                 walking = false;
             }
         }
+        if (stun == true)
+        {
+            StopAndBlock();
+            ResumeRoaming();
+        }
+
+        
     }
     IEnumerator stayIdle()
     {
