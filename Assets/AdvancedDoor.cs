@@ -6,8 +6,7 @@ public class AdvancedDoors : MonoBehaviour
 {
 
     public Animator door;
-    //public GameObject lockOB;
-    //public GameObject keyOB;
+    public GameObject keyOB;
     public GameObject openText;
     public GameObject closeText;
     public GameObject lockedText;
@@ -23,9 +22,6 @@ public class AdvancedDoors : MonoBehaviour
     private bool doorisClosed;
     public bool locked;
     public bool unlocked;
-
-
-
 
 
     void OnTriggerEnter(Collider other)
@@ -67,32 +63,20 @@ public class AdvancedDoors : MonoBehaviour
 
 
     void Update()
-    {   
-        /*
-        if (lockOB.activeInHierarchy)
+    {
+        
+        if (inReach && keyOB.activeInHierarchy && Input.GetButtonDown("Interact"))
         {
-            locked = true;
-            unlocked = false;
-        }
-
-        else
-        {
-            unlocked = true;
+            //unlockedSound.Play();
             locked = false;
-        }
-        */
-        if (inReach && /*keyOB.activeInHierarchy && */ Input.GetButtonDown("Interact"))
-        {
-            unlockedSound.Play();
-            locked = false;
-            //keyOB.SetActive(false);
+            keyOB.SetActive(false);
             StartCoroutine(unlockDoor());
         }
 
         if (inReach && doorisClosed && unlocked && Input.GetButtonDown("Interact"))
         {
-            door.SetBool("open", true);
-            door.SetBool("close", false);
+            door.SetBool("Open", true);
+            door.SetBool("Closed", false);
             openText.SetActive(false);
             openSound.Play();
             doorisOpen = true;
@@ -101,8 +85,8 @@ public class AdvancedDoors : MonoBehaviour
 
         else if (inReach && doorisOpen && unlocked && Input.GetButtonDown("Interact"))
         {
-            door.SetBool("open", false);
-            door.SetBool("close", true);
+            door.SetBool("Open", false);
+            door.SetBool("Closed", true);
             closeText.SetActive(false);
             closeSound.Play();
             doorisClosed = true;
@@ -113,7 +97,7 @@ public class AdvancedDoors : MonoBehaviour
         {
             openText.SetActive(false);
             lockedText.SetActive(true);
-            lockedSound.Play();
+            //lockedSound.Play();
         }
 
     }
@@ -122,9 +106,7 @@ public class AdvancedDoors : MonoBehaviour
     {
         yield return new WaitForSeconds(.05f);
         {
-
             unlocked = true;
-            //lockOB.SetActive(false);
         }
     }
 
