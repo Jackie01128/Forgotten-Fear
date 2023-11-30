@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpKey : MonoBehaviour
+public class keyScript : MonoBehaviour
 {
     public GameObject keyOB;
     public GameObject invOB;
