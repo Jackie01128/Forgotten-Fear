@@ -2,39 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class keyScript : MonoBehaviour
+public class PickUpKey : MonoBehaviour
 {
-    public GameObject inticon; // Declare inticon as a public GameObject
-    public GameObject key;     // Declare key as a public GameObject
+    public GameObject keyOB;
+    public GameObject invOB;
+    public GameObject pickUpText;
+    public AudioSource keySound;
 
-    private bool isPickedUp = false; // Add a variable to track if the key is picked up
+    public bool inReach;
 
-    void OnTriggerStay(Collider other)
+
+    void Start()
     {
-        if (!isPickedUp && other.CompareTag("Camera"))
+        inReach = false;
+        pickUpText.SetActive(false);
+        invOB.SetActive(false);
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Reach")
         {
-            inticon.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                // Call a method to handle the pick-up
-                PickUpKey();
-            }
+            inReach = true;
+            pickUpText.SetActive(true);
+
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Camera") && !isPickedUp)
+        if (other.gameObject.tag == "Reach")
         {
-            inticon.SetActive(false);
+            inReach = false;
+            pickUpText.SetActive(false);
+
         }
     }
 
-    void PickUpKey()
+
+    void Update()
     {
-        isPickedUp = true; // Set the key as picked up
-        key.SetActive(false); // Hide the key
-        inticon.SetActive(false); // Hide the inticon
-        // Add any other logic for what should happen when the key is picked up
+        if (inReach && Input.GetButtonDown("Interact"))
+        {
+            keyOB.SetActive(false);
+            keySound.Play();
+            invOB.SetActive(true);
+            pickUpText.SetActive(false);
+        }
+
+
     }
 }
