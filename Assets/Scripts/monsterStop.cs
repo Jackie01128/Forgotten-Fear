@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterStop : MonoBehaviour
 {
-    public MonsterChase monsterChase; // Reference to the MonsterChase script.
+    public NewAi newAi; // Reference to the NewAi script.
     public FlareStick flareStick; // Reference to the FlareStick script.
 
     private bool isChasing = true;
@@ -16,7 +16,7 @@ public class MonsterStop : MonoBehaviour
             if (isChasing)
             {
                 // Pause the monster's chasing behavior.
-                monsterChase.StopChasing();
+                newAi.StopAndBlock();
                 StartCoroutine(CheckFlareStickStatus());
             }
         }
@@ -29,7 +29,7 @@ public class MonsterStop : MonoBehaviour
             // Ensure that the monster resumes chasing only if it was previously paused.
             if (!isChasing)
             {
-                monsterChase.ResumeChasing();
+                newAi.ResumeRoaming();
             }
         }
     }
@@ -44,7 +44,7 @@ public class MonsterStop : MonoBehaviour
             {
                 // If the flare stick is no longer active, set the flag to false.
                 isChasing = false;
-                monsterChase.ResumeChasing();
+                newAi.ResumeRoaming();
                 break;
             }
         }

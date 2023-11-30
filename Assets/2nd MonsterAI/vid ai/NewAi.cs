@@ -25,9 +25,12 @@ public class NewAi : MonoBehaviour
     {
         walking = false;
         chasing = false;
+        stun = true;  // Set the stun variable to true
         // Additional logic for stopping the monster, e.g., setting it to a block state
         // You might want to stop animations, disable AI, etc.
         ai.isStopped = true; // Stop the NavMeshAgent
+        ai.velocity = Vector3.zero; // Stop the current movement
+        ai.destination = transform.position;
     }
 
     public void ResumeRoaming()
@@ -37,76 +40,95 @@ public class NewAi : MonoBehaviour
         // Additional logic for resuming the monster's roaming behavior
         ai.isStopped = false;
     }
+
     void Start()
     {
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
     }
+
     void Update()
     {
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + rayCastOffset, direction, out hit, sightDistance))
+
+        if (!stun)
         {
-            if (hit.collider.gameObject.tag == "Player")
+            if (Physics.Raycast(transform.position + rayCastOffset, direction, out hit, sightDistance))
             {
-                walking = false;
-                StopCoroutine("stayIdle");
-                StopCoroutine("chaseRoutine");
-                StartCoroutine("chaseRoutine");
-                chasing = true;
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    walking = false;
+                    StopCoroutine("stayIdle");
+                    StopCoroutine("chaseRoutine");
+
+                    dest = player.position;
+                    ai.destination = dest;
+
+                    ai.speed = chaseSpeed;
+                    aiAnim.ResetTrigger("walk");
+                    aiAnim.ResetTrigger("idle");
+                    aiAnim.ResetTrigger("stun");
+                    aiAnim.SetTrigger("sprint");
+
+                    StartCoroutine("chaseRoutine");
+                    chasing = true;
+                }
             }
-        }
-        if (chasing == true)
-        {
-            dest = player.position;
-            ai.destination = dest;
-            ai.speed = chaseSpeed;
-            aiAnim.ResetTrigger("walk");
-            aiAnim.ResetTrigger("idle");
-            aiAnim.ResetTrigger("stun");
-            aiAnim.SetTrigger("sprint");
-            float distance = Vector3.Distance(player.position, ai.transform.position);
-            if (distance <= catchDistance)
+
+            if (chasing)
             {
-                player.gameObject.SetActive(false);
-                aiAnim.ResetTrigger("walk");
+                float distance = Vector3.Distance(player.position, ai.transform.position);
+                if (distance <= catchDistance)
+                {
+                    player.gameObject.SetActive(false);
+                    aiAnim.ResetTrigger("walk");
+                    aiAnim.ResetTrigger("idle");
+                    aiAnim.ResetTrigger("sprint");
+                    aiAnim.SetTrigger("jumpscare");
+                    StartCoroutine(deathRoutine());
+                    chasing = false;
+                }
+            }
+            
+            if (stun)
+            {
+                SetAnimationTriggers("stun");
+                StopAndBlock();
+                // No need to call ResumeRoaming here, as the stun variable will be reset when the flare effect ends.
+            }
+
+            if (walking)
+            {
+                dest = currentDest.position;
+                ai.destination = dest;
+                ai.speed = walkSpeed;
+                aiAnim.ResetTrigger("sprint");
                 aiAnim.ResetTrigger("idle");
-                aiAnim.ResetTrigger("sprint");
-                aiAnim.SetTrigger("jumpscare");
-                StartCoroutine(deathRoutine());
-                chasing = false;
+                aiAnim.ResetTrigger("stun");
+                aiAnim.SetTrigger("walk");
+
+                if (ai.remainingDistance <= ai.stoppingDistance)
+                {
+                    aiAnim.ResetTrigger("sprint");
+                    aiAnim.ResetTrigger("walk");
+                    aiAnim.SetTrigger("idle");
+                    ai.speed = 0;
+                    StopCoroutine("stayIdle");
+                    StartCoroutine("stayIdle");
+                    walking = false;
+                }
             }
         }
-        if (walking == true)
+        else
         {
-            dest = currentDest.position;
-            ai.destination = dest;
-            ai.speed = walkSpeed;
-            aiAnim.ResetTrigger("sprint");
-            aiAnim.ResetTrigger("idle");
-            aiAnim.ResetTrigger("stun");
-            aiAnim.SetTrigger("walk");
-            if (ai.remainingDistance <= ai.stoppingDistance)
-            {
-                aiAnim.ResetTrigger("sprint");
-                aiAnim.ResetTrigger("walk");
-                aiAnim.SetTrigger("idle");
-                ai.speed = 0;
-                StopCoroutine("stayIdle");
-                StartCoroutine("stayIdle");
-                walking = false;
-            }
-        }
-        if (stun == true)
-        {
+            SetAnimationTriggers("stun");
             StopAndBlock();
             ResumeRoaming();
         }
-
-        
     }
+
     IEnumerator stayIdle()
     {
         idleTime = Random.Range(minIdleTime, maxIdleTime);
@@ -115,6 +137,7 @@ public class NewAi : MonoBehaviour
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
     }
+
     IEnumerator chaseRoutine()
     {
         chaseTime = Random.Range(minChaseTime, maxChaseTime);
@@ -124,9 +147,20 @@ public class NewAi : MonoBehaviour
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
     }
+
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(jumpscareTime);
         SceneManager.LoadScene(deathScene);
+    }
+
+    // Helper method to set animation triggers
+    private void SetAnimationTriggers(string trigger)
+    {
+        aiAnim.ResetTrigger("walk");
+        aiAnim.ResetTrigger("idle");
+        aiAnim.ResetTrigger("sprint");
+        aiAnim.ResetTrigger("stun");
+        aiAnim.SetTrigger(trigger);
     }
 }

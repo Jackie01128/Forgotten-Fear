@@ -8,29 +8,25 @@ public class Flare : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
         if (other.CompareTag("monster"))
         {
-            Debug.Log("triggered flare");
+            Debug.Log("Triggered flare");
             NewAi monster = other.GetComponent<NewAi>();
             if (monster != null)
             {
+                Debug.Log("Flare triggered! Monster stunned.");
+
                 // Stop the monster and set it to a block state
                 monster.stun = true;
+                monster.StopAndBlock();
 
                 // Set a timer to resume roaming after flare duration
                 StartCoroutine(ResumeRoaming(monster));
-                Debug.Log("Flare triggered! Monster stunned.");
-            }
-            else if(monster == null)
-            {
-                Debug.Log("Monster is null");
             }
             else
             {
-                Debug.Log("Monster is fucked");
+                Debug.LogError("Monster does not have NewAi script!");
             }
-            
         }
     }
 
@@ -39,6 +35,7 @@ public class Flare : MonoBehaviour
         yield return new WaitForSeconds(flareDuration);
 
         // Resume roaming state
+        monster.stun = false;
         monster.ResumeRoaming();
         Debug.Log("Monster resumed roaming.");
     }
