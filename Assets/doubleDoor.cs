@@ -2,53 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class doubleDoor : MonoBehaviour
+public class doubleDoor: MonoBehaviour
 {
+
     public Animator door;
+    public GameObject keyOB;
     public GameObject openText;
-
-    //public AudioSource doorSound;
-
-
-    public bool inReach;
+    public GameObject closeText;
+    public GameObject lockedText;
 
 
-    private BoxCollider childBoxCollider;  // Reference to the child BoxCollider
+    public AudioSource openSound;
+    public AudioSource closeSound;
+    public AudioSource lockedSound;
+    public AudioSource unlockedSound;
 
-    void Start()
+    private bool inReach;
+    private bool doorisOpen;
+    private bool doorisClosed;
+    public bool locked;
+    public bool unlocked;
+
+
+    void OnTriggerEnter(Collider other)
     {
-        inReach = false;
-
-        // Get the BoxCollider component from the child object
-        childBoxCollider = GetComponentInChildren<BoxCollider>();
-
-        if (childBoxCollider == null)
-        {
-            Debug.LogError("Child BoxCollider not found!");
-        }
-    }
-
-    void OnTriggerEnter()
-    {
-
-        if (childBoxCollider.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Reach" && doorisClosed)
         {
             inReach = true;
             openText.SetActive(true);
         }
-    }
 
-    void OnTriggerExit()
-    {
-        if (childBoxCollider.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Reach" && doorisOpen)
         {
-
-            inReach = false;
-            openText.SetActive(false);
-
+            inReach = true;
+            closeText.SetActive(true);
         }
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Reach")
+        {
+            inReach = false;
+            openText.SetActive(false);
+            lockedText.SetActive(false);
+            closeText.SetActive(false);
+        }
+    }
+
+    void Start()
+    {
+        inReach = false;
+        doorisClosed = true;
+        doorisOpen = false;
+        closeText.SetActive(false);
+        openText.SetActive(false);
+    }
 
 
 
@@ -56,37 +65,52 @@ public class doubleDoor : MonoBehaviour
     void Update()
     {
 
-        if (inReach && Input.GetButtonDown("Interact"))
+        if (inReach && keyOB.activeInHierarchy && Input.GetButtonDown("Interact"))
         {
-            DoorOpens();
-            Debug.Log("Door has opened");
+            //unlockedSound.Play();
+            locked = false;
+            keyOB.SetActive(false);
+            StartCoroutine(unlockDoor());
         }
 
-        else
+        if (inReach && doorisClosed && unlocked && Input.GetButtonDown("Interact"))
         {
-            DoorCloses();
-            Debug.Log("Door has opened");
+            door.SetBool("Open", true);
+            door.SetBool("Closed", false);
+            openText.SetActive(false);
+            openSound.Play();
+            doorisOpen = true;
+            doorisClosed = false;
         }
 
+        else if (inReach && doorisOpen && unlocked && Input.GetButtonDown("Interact"))
+        {
+            door.SetBool("Open", false);
+            door.SetBool("Closed", true);
+            closeText.SetActive(false);
+            closeSound.Play();
+            doorisClosed = true;
+            doorisOpen = false;
+        }
 
-
+        if (inReach && locked && Input.GetButtonDown("Interact"))
+        {
+            openText.SetActive(false);
+            lockedText.SetActive(true);
+            //lockedSound.Play();
+        }
 
     }
-    void DoorOpens()
+
+    IEnumerator unlockDoor()
     {
-        //Debug.Log("It Opens");
-        door.SetBool("Open", true);
-        door.SetBool("Closed", false);
-        //doorSound.Play();
-
+        yield return new WaitForSeconds(.05f);
+        {
+            unlocked = true;
+        }
     }
 
-    void DoorCloses()
-    {
-        //Debug.Log("It Closes");
-        door.SetBool("Open", false);
-        door.SetBool("Closed", true);
-    }
+
 
 
 }

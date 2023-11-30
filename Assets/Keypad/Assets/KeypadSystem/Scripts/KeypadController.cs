@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KeypadController : MonoBehaviour
 {
-    public DoorController door;
+    public Animator safedoor;
     public string password;
     public int passwordLimit;
     public Text passwordText;
@@ -50,13 +50,16 @@ public class KeypadController : MonoBehaviour
     {
         if (passwordText.text == password)
         {
-            door.lockedByPassword = false;
+            Debug.Log("HELLLO");
 
             if (audioSource != null)
                 audioSource.PlayOneShot(correctSound);
 
             passwordText.color = Color.green;
             StartCoroutine(waitAndClear());
+            safedoor.SetBool("open", true);
+
+
         }
         else
         {
