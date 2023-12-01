@@ -11,6 +11,8 @@ public class PickUpKey : MonoBehaviour
 
     public bool inReach;
 
+    public bool playerHasKey;
+
 
     void Start()
     {
@@ -49,6 +51,11 @@ public class PickUpKey : MonoBehaviour
             keySound.Play();
             invOB.SetActive(true);
             pickUpText.SetActive(false);
+            playerHasKey = true;
+            int intValue = playerHasKey ? 1 : 0;
+            PlayerPrefs.SetInt("playerHasKey", intValue);
+            PlayerPrefs.Save();
+            
         }
 
         
