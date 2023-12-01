@@ -8,6 +8,7 @@ public class Flare : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triggered ontrigger thingy");
         if (other.CompareTag("monster"))
         {
             Debug.Log("Triggered flare");
@@ -23,11 +24,9 @@ public class Flare : MonoBehaviour
                 // Set a timer to resume roaming after flare duration
                 StartCoroutine(ResumeRoaming(monster));
             }
-            else
-            {
-                Debug.LogError("Monster does not have NewAi script!");
-            }
+            
         }
+
     }
 
     IEnumerator ResumeRoaming(NewAi monster)
