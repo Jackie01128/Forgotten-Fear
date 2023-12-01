@@ -10,6 +10,7 @@ public class NewAi : MonoBehaviour
     public List<Transform> destinations;
     public Animator aiAnim;
     public float walkSpeed, chaseSpeed, minIdleTime, maxIdleTime, idleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, jumpscareTime;
+    public float chaseDistanceModifier = 1.0f;
     public bool walking, chasing, stun;
     public Transform player;
     Transform currentDest;
@@ -18,6 +19,7 @@ public class NewAi : MonoBehaviour
     public int destinationAmount;
     public Vector3 rayCastOffset;
     public string deathScene;
+
 
     bool flareActive = false;
 
@@ -77,6 +79,7 @@ public class NewAi : MonoBehaviour
                 }
             }
 
+
             if (chasing)
             {
                 float distance = Vector3.Distance(player.position, ai.transform.position);
@@ -90,8 +93,15 @@ public class NewAi : MonoBehaviour
                     StartCoroutine(deathRoutine());
                     chasing = false;
                 }
+
+                //if (distance > sightDistance * chaseDistanceModifier)
+                //{
+
+                //   chasing = false;
+                //  walking = true;
+                //}
             }
-            
+
             if (stun)
             {
                 SetAnimationTriggers("stun");
