@@ -20,7 +20,8 @@ public class NewAi : MonoBehaviour
     public Vector3 rayCastOffset;
     public string deathScene;
 
-
+    public AudioSource objSound, jumpScareSound;
+    
     bool flareActive = false;
 
     public void StopAndBlock()
@@ -45,6 +46,7 @@ public class NewAi : MonoBehaviour
 
     void Start()
     {
+        objSound.Play();
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
@@ -52,6 +54,7 @@ public class NewAi : MonoBehaviour
 
     void Update()
     {
+        
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
 
@@ -160,6 +163,8 @@ public class NewAi : MonoBehaviour
 
     IEnumerator deathRoutine()
     {
+        objSound.Stop();
+        jumpScareSound.Play();
         yield return new WaitForSeconds(jumpscareTime);
         SceneManager.LoadScene(deathScene);
     }
