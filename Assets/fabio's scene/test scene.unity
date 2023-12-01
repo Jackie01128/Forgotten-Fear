@@ -8028,7 +8028,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 16385
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
@@ -18271,13 +18271,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302798777}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63365b1054b845a4fa69fd34a350b4f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inticon: {fileID: 0}
-  key: {fileID: 0}
+  keyOB: {fileID: 0}
+  invOB: {fileID: 0}
+  pickUpText: {fileID: 0}
+  keySound: {fileID: 0}
+  inReach: 0
 --- !u!54 &1302798779
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28626,6 +28629,11 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3393449141340016830, guid: eb5508813ef74af47ad9ed89f7874956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3694387356789597616, guid: eb5508813ef74af47ad9ed89f7874956,
         type: 3}
       propertyPath: m_Enabled
@@ -28640,6 +28648,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: glowstick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253539458701052984, guid: eb5508813ef74af47ad9ed89f7874956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278532619865010420, guid: eb5508813ef74af47ad9ed89f7874956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715012723274655693, guid: eb5508813ef74af47ad9ed89f7874956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7300101299919846713, guid: eb5508813ef74af47ad9ed89f7874956,
         type: 3}
@@ -28670,6 +28693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744500383760422182, guid: eb5508813ef74af47ad9ed89f7874956,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7817127746488943559, guid: eb5508813ef74af47ad9ed89f7874956,
         type: 3}
@@ -28746,6 +28774,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 200322282}
+    - target: {fileID: 8875219448801754741, guid: eb5508813ef74af47ad9ed89f7874956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7903465105988507166, guid: eb5508813ef74af47ad9ed89f7874956, type: 3}
     m_RemovedGameObjects: []
@@ -29549,7 +29582,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.10666666
+  m_VoxelSize: 0.093333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: ccdbb806abc47054eac89841cdfa6d49, type: 2}
   m_BuildHeightMesh: 0

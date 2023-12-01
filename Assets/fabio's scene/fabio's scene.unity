@@ -2867,14 +2867,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556394698}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 724ba1dc81a4e924fbc30db6f7466193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 499010245}
   attackPoint: {fileID: 1282714439}
-  objectToThrow: {fileID: 636545172}
+  objectToThrow: {fileID: 1858622397}
   totalThrows: 5
   throwCooldown: 0.5
   throwKey: 101
@@ -13469,6 +13469,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1858622397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4253539458701052984, guid: eb5508813ef74af47ad9ed89f7874956,
+    type: 3}
+  m_PrefabInstance: {fileID: 1501983126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1873549666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2788555298905311758, guid: 8ab6b43181e1dd24494b5d3a49b72106,
@@ -15496,7 +15502,7 @@ PrefabInstance:
     - target: {fileID: 2391759391106470284, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2986940287584286724, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
         type: 3}
@@ -15506,7 +15512,17 @@ PrefabInstance:
     - target: {fileID: 4504405548629886534, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
         type: 3}
       propertyPath: m_UseGravity
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504405548629886534, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504405548629886534, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5140882960331766644, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
         type: 3}
@@ -15567,6 +15583,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523249148992793947, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.771
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523249148992793947, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 70.92
       objectReference: {fileID: 0}
     - target: {fileID: 8523805166228610675, guid: f36e8a2b09ff47a49bf6e534ccc80a55,
         type: 3}
