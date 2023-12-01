@@ -67,7 +67,7 @@ public class AdvancedDoors : MonoBehaviour
         
         if (inReach && keyOB.activeInHierarchy && Input.GetButtonDown("Interact"))
         {
-            //unlockedSound.Play();
+            unlockedSound.Play();
             locked = false;
             keyOB.SetActive(false);
             StartCoroutine(unlockDoor());
@@ -97,7 +97,7 @@ public class AdvancedDoors : MonoBehaviour
         {
             openText.SetActive(false);
             lockedText.SetActive(true);
-            //lockedSound.Play();
+            lockedSound.Play();
         }
 
     }

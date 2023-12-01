@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PickUpKey : MonoBehaviour
 {
-    public GameObject keyOB;
+    public GameObject mapOB;
     public GameObject invOB;
     public GameObject pickUpText;
-    public AudioSource keySound;
+    public AudioSource objSound;
 
     public bool inReach;
 
@@ -47,15 +47,15 @@ public class PickUpKey : MonoBehaviour
     {
         if (inReach && Input.GetButtonDown("Interact"))
         {
-            keyOB.SetActive(false);
-            keySound.Play();
+            mapOB.SetActive(false);
+            objSound.Play();
             invOB.SetActive(true);
             pickUpText.SetActive(false);
-            playerHasKey = true;
+            /*playerHasKey = true;
             int intValue = playerHasKey ? 1 : 0;
             PlayerPrefs.SetInt("playerHasKey", intValue);
             PlayerPrefs.Save();
-            
+            */
         }
 
         
