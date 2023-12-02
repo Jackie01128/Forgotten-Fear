@@ -11,8 +11,6 @@ public class PickUpKey : MonoBehaviour
 
     public bool inReach;
 
-    public bool playerHasKey;
-
 
     void Start()
     {

@@ -9697,8 +9697,8 @@ GameObject:
   - component: {fileID: 1866048610914073881}
   - component: {fileID: 5204597261240371007}
   - component: {fileID: -8755366353956053453}
-  - component: {fileID: 1003347879209828594}
   - component: {fileID: 6933642645801815445}
+  - component: {fileID: 2673094213751269125}
   m_Layer: 7
   m_Name: Flare
   m_TagString: Untagged
@@ -9874,27 +9874,6 @@ MonoBehaviour:
   item: {fileID: 2788555298905311758}
   tempParent: {fileID: 0}
   isHolding: 0
---- !u!135 &1003347879209828594
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2788555298905311758}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6933642645801815445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9908,6 +9887,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flareDuration: 5
+--- !u!65 &2673094213751269125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788555298905311758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.015313147, y: 0.33305088, z: 0.03204826}
+  m_Center: {x: -0.0036760466, y: 0.0043050754, z: 0.0016774321}
 --- !u!1 &4134209887214826504
 GameObject:
   m_ObjectHideFlags: 0
