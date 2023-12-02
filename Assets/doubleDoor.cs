@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class doubleDoor: MonoBehaviour
 {
 
@@ -107,6 +107,8 @@ public class doubleDoor: MonoBehaviour
         yield return new WaitForSeconds(.05f);
         {
             unlocked = true;
+            yield return new WaitForSeconds(3.0f);
+            SceneManager.LoadScene("Congrats");
         }
     }
 
