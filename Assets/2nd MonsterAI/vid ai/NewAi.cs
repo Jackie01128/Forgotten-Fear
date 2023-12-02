@@ -10,6 +10,8 @@ public class NewAi : MonoBehaviour
     public List<Transform> destinations;
     public Animator aiAnim;
     public float walkSpeed, chaseSpeed, minIdleTime, maxIdleTime, idleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, jumpscareTime;
+    public AudioSource objSound;
+    public AudioSource jumpscareAudio;
     public bool walking, chasing, stun;
     public Transform player;
     Transform currentDest;
@@ -20,6 +22,7 @@ public class NewAi : MonoBehaviour
     public string deathScene;
 
     bool flareActive = false;
+    
 
     public void StopAndBlock()
     {
@@ -46,6 +49,7 @@ public class NewAi : MonoBehaviour
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
+        objSound.Play();
     }
 
     void Update()
@@ -150,6 +154,7 @@ public class NewAi : MonoBehaviour
 
     IEnumerator deathRoutine()
     {
+        jumpscareAudio.Play();
         yield return new WaitForSeconds(jumpscareTime);
         SceneManager.LoadScene("GameOver");
     }
