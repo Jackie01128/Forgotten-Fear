@@ -10,7 +10,6 @@ public class NewAi : MonoBehaviour
     public List<Transform> destinations;
     public Animator aiAnim;
     public float walkSpeed, chaseSpeed, minIdleTime, maxIdleTime, idleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, jumpscareTime;
-    public float chaseDistanceModifier = 1.0f;
     public bool walking, chasing, stun;
     public Transform player;
     Transform currentDest;
@@ -20,8 +19,6 @@ public class NewAi : MonoBehaviour
     public Vector3 rayCastOffset;
     public string deathScene;
 
-    public AudioSource objSound, jumpScareSound;
-    
     bool flareActive = false;
 
     public void StopAndBlock()
@@ -46,7 +43,6 @@ public class NewAi : MonoBehaviour
 
     void Start()
     {
-        objSound.Play();
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
@@ -54,7 +50,6 @@ public class NewAi : MonoBehaviour
 
     void Update()
     {
-        
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
 
@@ -82,7 +77,6 @@ public class NewAi : MonoBehaviour
                 }
             }
 
-
             if (chasing)
             {
                 float distance = Vector3.Distance(player.position, ai.transform.position);
@@ -96,15 +90,8 @@ public class NewAi : MonoBehaviour
                     StartCoroutine(deathRoutine());
                     chasing = false;
                 }
-
-                //if (distance > sightDistance * chaseDistanceModifier)
-                //{
-
-                //   chasing = false;
-                //  walking = true;
-                //}
             }
-
+            
             if (stun)
             {
                 SetAnimationTriggers("stun");
@@ -163,10 +150,8 @@ public class NewAi : MonoBehaviour
 
     IEnumerator deathRoutine()
     {
-        objSound.Stop();
-        jumpScareSound.Play();
         yield return new WaitForSeconds(jumpscareTime);
-        SceneManager.LoadScene(deathScene);
+        SceneManager.LoadScene("GameOver");
     }
 
     // Helper method to set animation triggers

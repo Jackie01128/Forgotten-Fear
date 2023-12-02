@@ -52,6 +52,11 @@ public class SC_FPSController : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         // Detect crouch input
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
