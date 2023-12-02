@@ -35,6 +35,8 @@ public class SC_FPSController : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
+    public AudioSource footstepsSound;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -51,11 +53,6 @@ public class SC_FPSController : MonoBehaviour
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
-
-        if (Time.timeScale == 0f)
-        {
-            return;
-        }
 
         // Detect crouch input
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -79,6 +76,7 @@ public class SC_FPSController : MonoBehaviour
         if (isSprinting)
         {
             targetSpeed = runningSpeed;
+            footstepsSound.enabled = true;
         }
         else if (isCrouching)
         {
@@ -88,6 +86,19 @@ public class SC_FPSController : MonoBehaviour
         {
             targetSpeed = walkingSpeed;
         }
+
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && targetSpeed == walkingSpeed)
+            {
+                footstepsSound.enabled = true;
+            }
+        else if((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && targetSpeed == runningSpeed)
+            {
+                footstepsSound.enabled = true;
+            }
+        else 
+            {
+                footstepsSound.enabled = false;
+            }
 
         // Ensure that the speed never drops below the minimum speed
         if (speedMultiplier * targetSpeed < minSpeed)
