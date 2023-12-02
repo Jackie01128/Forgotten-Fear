@@ -108,7 +108,7 @@ public class doubleDoor: MonoBehaviour
         {
             unlocked = true;
             yield return new WaitForSeconds(3.0f);
-            SceneManager.LoadScene("Congrats");
+            SceneManager.LoadScene("CreditScene");
         }
     }
 
